@@ -1,8 +1,9 @@
 import { UserModelState } from './user';
-import { Location } from 'umi';
+import { Location, Dispatch } from 'umi';
 
 export interface ConnectProps {
   location: Location & { state: { from: string } };
+  dispatch: Dispatch;
 }
 
 export interface ConnectState {
