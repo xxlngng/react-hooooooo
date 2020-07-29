@@ -13,6 +13,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ form, handleSubmit }) => {
   // console.log('form', form);
   const { getFieldProps, getFieldsValue } = form;
   const submit = () => {
+    // 登陆
     let value = getFieldsValue();
     // console.log('value', value)
     handleSubmit(value);
@@ -30,7 +31,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ form, handleSubmit }) => {
       </InputItem>
       <InputItem
         {...getFieldProps('password')}
-        type="text"
+        type="password"
         clear
         placeholder="请输入密码"
       >

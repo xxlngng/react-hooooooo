@@ -4,5 +4,11 @@ export async function queryCurrent(): Promise<any> {
   return request('/api/currentUser');
 }
 
-export function queryDetail() {}
-export function fakeAccountLogout() {}
+export async function queryDetail(): Promise<any> {
+  return request('/api/getUserDetail');
+}
+
+// export function queryDetail() {}
+export function fakeAccountLogout(): Promise<any> {
+  return request('/api/logout');
+}
