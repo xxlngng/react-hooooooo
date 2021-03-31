@@ -1,20 +1,24 @@
-import React, { useEffect, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { connect, Redirect } from 'umi';
 import { ConnectState, ConnectProps, UserModelState } from '@/models/connect';
+
 interface SecurityLayoutProps extends ConnectProps {
   user: UserModelState;
   children: ReactElement;
 }
 
-const SecurityLayout: React.FC<SecurityLayoutProps> = ({ user, children }) => {
-  useEffect(() => {}, []);
+const SecurityLayout: React.FC<SecurityLayoutProps> = ({
+  user,
+  children,
+  location,
+}) => {
   const { userid } = user.currentUser;
   const isLogin = !!userid;
   if (!isLogin) {
-    // 没有登陆
+    // 没有登录 去登录页
     return (
       <Redirect
-        to={{ pathname: 'login', state: { from: location.pathname } }}
+        to={{ pathname: '/login', state: { from: location.pathname } }}
       />
     );
   }
